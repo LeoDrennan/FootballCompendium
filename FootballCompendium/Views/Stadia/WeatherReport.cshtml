@@ -1,0 +1,67 @@
+﻿@model FootballCompendium.Models.WeatherReport
+
+@{
+    ViewData["Title"] = "WeatherReport";
+}
+
+<h1 class="center">@Html.DisplayFor(model => model.stadium_name)</h1>
+
+<div>
+    <h4>Stadium details</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Location
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.stadium_location)
+        </dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Capacity
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.stadium_capacity)
+        </dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Description
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.description)
+        </dd>
+    </dl>
+</div>
+<br />
+<div>
+    <h4>Local weather report</h4>
+    <hr />
+    <dl class="row center">
+        <dt class="col-sm-2">
+            Temperature
+        </dt>
+        <dd class="col-sm-4">
+            @Html.DisplayFor(model => model.current.temp_c) &degC
+        </dd>
+        <dt class="col-sm-2">
+            Local Time
+        </dt>
+        <dd class="col-sm-4">
+            @Html.DisplayFor(model => model.Location.localtime)
+        </dd>
+    </dl>
+    <br />
+    <dl class="row center">
+        <dd class="col-sm-12">
+            @Html.DisplayFor(model => model.current.condition.text)
+            <img src="@Html.DisplayFor(model => model.current.condition.icon)" alt="Weather Icon" />
+        </dd>
+    </dl>
+</div>
+<br />
+<hr />
+<div class="center">
+    <a class="center" asp-action="Index">Back to List</a>
+</div>

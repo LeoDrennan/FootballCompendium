@@ -1,0 +1,41 @@
+﻿@model IEnumerable<FootballCompendium.Models.Stadium>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="center">List of Stadiums</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Stadium Name
+            </th>
+            <th>
+                Stadium Location
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.stadium_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.stadium_location)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="WeatherReport" asp-route-id="@item.Id">Weather Report</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
